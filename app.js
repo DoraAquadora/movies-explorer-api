@@ -21,9 +21,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(cors({
-  origin: ['https://api.doramovies.nomoredomains.sbs', 'http://api.doramovies.nomoredomains.sbs'],
+  origin: ['https://api.doramovies.nomoredomains.sbs', 'http://api.doramovies.nomoredomains.sbs', 'https://doramovies.nomoredomains.sbs', 'http://doramovies.nomoredomains.sbs'],
   credentials: true,
-}));
+})); // для бэка и будующего фронта задел
 
 app.use(requestLogger);
 
