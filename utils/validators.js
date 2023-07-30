@@ -5,14 +5,14 @@ const validateCreateUser = {
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     email: Joi.string().required().email(),
-    password: Joi.string().required(),
+    password: Joi.string().required().min(6).max(30),
   }),
 };
 
 const validateLogin = {
   body: Joi.object({
     email: Joi.string().required().email(),
-    password: Joi.string().required(),
+    password: Joi.string().required().min(6).max(30),
   }),
 };
 
@@ -41,7 +41,7 @@ const validateMovies = {
 
 const validateMovieId = {
   params: Joi.object({
-    _id: Joi.string().hex().length(24),
+    _id: Joi.string().required().hex().length(24),
   }),
 };
 

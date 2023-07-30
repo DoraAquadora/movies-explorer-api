@@ -3,7 +3,9 @@ const { celebrate } = require('celebrate');
 const usersRouter = require('./users');
 const movieRouter = require('./movie');
 const auth = require('../middlewares/auth');
-const error = require('../errors/errors');
+const error = require('../utils/constants');
+const errorCode = require('../errors/errors');
+
 const {
   login,
   createUser,
@@ -17,12 +19,11 @@ const {
 router.post('/signup', celebrate(validateCreateUser), createUser);
 router.post('/signin', celebrate(validateLogin), login);
 
-router.use(auth);
-router.use('/users', usersRouter);
-router.use('/movies', movieRouter);
+router.use('/users', auth, usersRouter);
+router.use('/movies', auth, movieRouter);
 
-router.use('*', (req, res, next) => {
-  next(new error.NotFound(error.NotFoundMsg));
+router.use('*', auth, (req, res, next) => {
+  next(new errorCode.NotFound(error.NotFoundMsg));
 });
 
 module.exports = router;

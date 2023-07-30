@@ -1,9 +1,9 @@
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 const User = require('../models/user');
-const error = require('../errors/errors');
+const error = require('../utils/constants');
+const errorCode = require('../errors/errors');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -26,9 +26,9 @@ const createUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.code === 'ValidationError') {
-        next(new error.BadRequest(error.BadRequestMsg));
+        next(new errorCode.BadRequest(error.BadRequestMsg));
       } else if (err.code === 11000) {
-        next(new error.Conflict(error.AlreadyExistMsg));
+        next(new errorCode.Conflict(error.AlreadyExistMsg));
       } else {
         next(err);
       }
@@ -47,8 +47,14 @@ const login = (req, res, next) => {
       );
       res.send({ token });
     })
-    .catch(next);
-};
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        next(new errorCode.BadRequest(error.BadRequestMsg));
+      } else {
+        next(err);
+      }
+    });
+}; // ERR
 
 module.exports = {
   login,

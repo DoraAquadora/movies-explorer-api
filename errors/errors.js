@@ -1,18 +1,15 @@
-const { Conflict, AlreadyExistMsg } = require('./AlreadyExistError');
-const { Unauthorized, AuthMsg } = require('./AuthError');
-const { BadRequest, BadRequestMsg } = require('./BadRequestError');
-const { Forbidden, ForbiddenMsg } = require('./ForbiddenError');
-const { NotFound, NotFoundMsg } = require('./NotFoundError');
+const { Conflict } = require('./AlreadyExistError');
+const { Unauthorized } = require('./AuthError');
+const { BadRequest } = require('./BadRequestError');
+const { Forbidden } = require('./ForbiddenError');
+const { NotFound } = require('./NotFoundError');
+const { Success } = require('./SuccessStatus');
 
 module.exports = {
   Conflict,
-  AlreadyExistMsg,
   Unauthorized,
-  AuthMsg,
   BadRequest,
-  BadRequestMsg,
   Forbidden,
-  ForbiddenMsg,
   NotFound,
-  NotFoundMsg,
+  Success,
 };

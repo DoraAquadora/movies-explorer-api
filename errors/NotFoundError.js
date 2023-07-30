@@ -1,5 +1,3 @@
-const NotFoundMsg = 'Не найдено';
-
 class NotFound extends Error {
   constructor(message) {
     super(message);
@@ -7,4 +5,4 @@ class NotFound extends Error {
   }
 }
 
-module.exports = { NotFound, NotFoundMsg };
+module.exports = { NotFound };

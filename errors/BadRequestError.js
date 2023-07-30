@@ -1,5 +1,3 @@
-const BadRequestMsg = 'Переданные данные неверны';
-
 class BadRequest extends Error {
   constructor(message) {
     super(message);
@@ -7,4 +5,4 @@ class BadRequest extends Error {
   }
 }
 
-module.exports = { BadRequest, BadRequestMsg };
+module.exports = { BadRequest };

@@ -1,5 +1,3 @@
-const ForbiddenMsg = 'Нет доступа';
-
 class Forbidden extends Error {
   constructor(message) {
     super(message);
@@ -7,4 +5,4 @@ class Forbidden extends Error {
   }
 }
 
-module.exports = { Forbidden, ForbiddenMsg };
+module.exports = { Forbidden };

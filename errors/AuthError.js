@@ -1,5 +1,3 @@
-const AuthMsg = 'Неверная почта или пароль';
-
 class Unauthorized extends Error {
   constructor(message) {
     super(message);
@@ -7,4 +5,6 @@ class Unauthorized extends Error {
   }
 }
 
-module.exports = { Unauthorized, AuthMsg };
+module.exports = {
+  Unauthorized,
+};

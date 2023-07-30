@@ -1,5 +1,3 @@
-const AlreadyExistMsg = 'Пользователь уже существует';
-
 class Conflict extends Error {
   constructor(message) {
     super(message);
@@ -7,4 +5,4 @@ class Conflict extends Error {
   }
 }
 
-module.exports = { Conflict, AlreadyExistMsg };
+module.exports = { Conflict };
