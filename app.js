@@ -25,8 +25,9 @@ app.use(helmet());
 mongoose.connect(mongoDB || DB);
 
 app.use(cors({
-  origin: ['https://api.doramovies.nomoredomains.sbs', 'http://api.doramovies.nomoredomains.sbs', 'https://doramovies.nomoredomains.sbs', 'http://doramovies.nomoredomains.sbs'],
+  origin: ['https://api.doramovies.nomoredomains.sbs', 'http://api.doramovies.nomoredomains.sbs', 'https://doramovies.nomoredomains.sbs', 'http://doramovies.nomoredomains.sbs', 'http://localhost:3000/'],
   credentials: true,
+
 })); // для бэка и будующего фронта задел
 
 app.use(requestLogger);
