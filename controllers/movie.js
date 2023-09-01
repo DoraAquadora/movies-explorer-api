@@ -4,7 +4,7 @@ const errorCode = require('../errors/errors');
 
 const getMovie = (req, res, next) => {
   Movie.find({ owner: req.user._id })
-    .orFail(() => new errorCode.NotFound(error.NotExistMov))
+    .orFail(() => res.send([]))
     .then((movies) => res.send(movies))
     .catch(next);
 };
